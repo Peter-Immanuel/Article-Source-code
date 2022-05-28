@@ -26,7 +26,7 @@ async def create_employee(developer: EmployeeDetails):
 
 
 @app.get("/developer", response_model=List[EmployeeDetails])
-async def get_developers(
+async def get_employees(
    languages: List[str] = Query(default=None),
    frameworks: List[str] = Query(default=None),
 ):

@@ -1,12 +1,15 @@
+# database.py
+
 from pymongo import MongoClient 
 
+# This should be kept as environment variable
 DATABASE_URL = 'mongodb://localhost:27017/'
 
-# establish a connection
+# Create a client
 client = MongoClient(DATABASE_URL, uuidRepresentation="standard")
 
-# create your db
 
+# Create Database
 database = client["employee"]
 
 def get_database():

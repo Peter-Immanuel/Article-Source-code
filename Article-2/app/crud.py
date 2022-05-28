@@ -1,20 +1,26 @@
+#crud.py
+
 from .database import get_database
 from .schemas import Employee
 
-#Create your connection
-database = get_database()
 
-developer = database["developer"]
+database = get_database() #Create your connection
+developer = database["developer"] #Create Collection
 
 
-# function to create a human object
 def add(employee: Employee):
-   print(employee)
+   '''
+   A function to create an Employee Document
+   '''
+
    developer.insert_one(employee.dict())
    return employee 
 
 
-#function to get a list of objects based on filter
 def list(**filter):
+   '''
+   A function to get the list of Document based on a filter
+   '''
+   
    employee_list = developer.find(filter)
    return [Employee(**employee) for employee in employee_list]

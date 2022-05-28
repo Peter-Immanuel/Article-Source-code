@@ -1,0 +1,17 @@
+/Article-2/app/__pycache__
+/Article-2/resources 
+/Article-2/venv/
+/Article-2/app/.DS_Store
+/Article-2/.DS_Store
+
+
+/Article-3/venv/
+/Article-3/webapp/core/__pycache__/
+/Article-3/webapp/users/__pycache__/
+/Article-3/webapp/users/migrations/
+/Article-3/webapp/users/models/__pycache__/
+/Article-3/webapp/utils/__pycache__/
+/Article-3/webapp/db.sqlite3
+/Article-3/ClassBase-dismistify
+/Article-3/webapp/.env
+.DS_Store
