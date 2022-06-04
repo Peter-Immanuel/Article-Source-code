@@ -1,0 +1,83 @@
+
+
+Built in class based views API
+
+The class based views are divided into 
+
+  Base views:
+    - View
+    - TemplateView
+    - RedirectView
+
+  Generic display views:
+    - DetailsView
+    - ListView
+
+  Generic Editing views:
+    - FormView
+    - CreateView
+    - UpdateView
+    - DeleteView
+
+  Generic date views:
+    - ArchiveIndexView
+    - DateDetailView
+    - DayArchiveView
+    - MonthArchiveView
+    - WeekArchiveView
+    - YearArchiveView
+
+
+Class based views Mixins
+
+  Simple mixins:
+    - ContextMixin
+    - TemplateResponseMixin
+
+  Single Object mixins:
+    - SingleObjectMixin
+    - SingleObjectTemplateResponseMixin
+
+  Multiple Object mixins:
+    - MultipleObjectMixin
+    - MultipleObjectTemplateResponseMixin
+  
+  Editing Mixins:
+    - FormMixin
+    - ModelFormMixin
+    - ProcessFormView
+    - DeletionMixin
+
+  Date-based Mixins:
+    - YearMixin
+    - MonthMixin
+    - DayMixin
+    - WeekMixin
+    - DateMixin
+    - BaseDateListView
+
+
+
+
+
+To proceed We have to Understand then innovate.
+
+what are Mixins?
+
+Mixins also known as mix-ins is a class that contains methods for use by other classes without having to be the parent.. 
+Hmmmmm(Thinking emoji)
+
+What does this mean because we know from inheritance, if class B inherites attributes and methods from class A then A is the  
+the parent class of the inheriter B based on the "is-a" relationship. 
+
+Here's the interesting thing Mixins are sometimes refered to as "included" rather than 
+"inherited"
+
+what does it do?
+it encourages code reuse and can be used to avoid the ambiguity of multiple inheritance also know as the diamond problem. 
+(hand on face)
+
+
+
+what is the diamond problem. 
+the diamond prob
