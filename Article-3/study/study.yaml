@@ -71,7 +71,7 @@ What does this mean because we know from inheritance, if class B inherites attri
 the parent class of the inheriter B based on the "is-a" relationship. 
 
 Here's the interesting thing Mixins are sometimes refered to as "included" rather than 
-"inherited"
+"inherited" since it doen't define a new type it shouldn't be inherited from
 
 what does it do?
 it encourages code reuse and can be used to avoid the ambiguity of multiple inheritance also know as the diamond problem. 
@@ -81,3 +81,47 @@ it encourages code reuse and can be used to avoid the ambiguity of multiple inhe
 
 what is the diamond problem. 
 the diamond prob
+
+
+So lets Talk about Django TemplateView and RedirectView.
+
+
+TemplateView:
+  inheritance-list:
+    - TemplateResponseMixin
+    - ContextMixin
+    - View
+
+  Methods:
+    - get(): It renders a template with a keyword arguments from the URLconf to the context attribute.
+
+  
+TemplateResponseMixin: It's a mixin used to render a template.
+
+  Attributes includes:
+    - template_name: The template to render, templates are rendered with a context. 
+    - template_engine: The template engine to use e.g Jinja used by flask and FastAPI
+    - response_class: The class to use for the response. which is TemplateResponse by default.
+    - content_type: The content type of the response.
+
+  Methods:
+    - get_template_names(): It checks to if a template name is assigned and returns the template,
+      else it raise an ImproperlyConfigured exception.
+
+    - render_to_response(): 
+
+
+
+
+
+
+
+
+
+
+
+
+
+How to use generic views:
+  - Using them directly in your URLconf
+  - Creating Subclass from them and overiding their attributes or methods

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import TemplateView, RedirectView
 # Create your views here.
 
 from .forms import UserForm
@@ -22,3 +23,6 @@ class UserView(View):
 
 
 
+class CustomTemplateView(TemplateView):
+   template_name: str = 'general/index.html'
+   content = {"source":"from view"}
