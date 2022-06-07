@@ -1,0 +1,4 @@
+# created by virtualenv automatically
+/webapp-venv/
+/study/
+/webapp/.env/

@@ -7,10 +7,12 @@
    <title>My Template</title>
 </head>
 <body>
+   <h2>{{ my_name }}</h2>
+
    {% if source %}
-      <h1>This page is loading from {{ source }}</h1>
+      <h3>This Page is loading from {{ source }}</h3>
    {% else %}
-      <h1>This image is loading from URL File</h1>
+      <h3>This Page is loading from URL File</h3>
    {% endif %}
 
 

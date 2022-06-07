@@ -1,7 +1,9 @@
+from typing import Dict, Any, Optional
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView, RedirectView
+
 # Create your views here.
 
 from .forms import UserForm
@@ -25,4 +27,10 @@ class UserView(View):
 
 class CustomTemplateView(TemplateView):
    template_name: str = 'general/index.html'
-   content = {"source":"from view"}
+   extra_context: Optional[Dict[str, Any]] = {
+      "my_name": "Bemshima",
+      "source": "Custom View"
+   }
+
+   def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+      return super().get_context_data(**kwargs)
