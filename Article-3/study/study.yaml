@@ -95,33 +95,59 @@ TemplateView:
   Methods:
     - get(): It renders a template with a keyword arguments from the URLconf to the context attribute.
 
-  
+
+Both TemplateResponseMixin and ContextMixin are simple mixins
+
 TemplateResponseMixin: It's a mixin used to render a template.
 
   Attributes includes:
-    - template_name: The template to render, templates are rendered with a context. 
+    - template_name: The template to render, templates are rendered with a context. if this attribute
+      isn't assigned an "ImproperlyConfigured" exception will be raised.
     - template_engine: The template engine to use e.g Jinja used by flask and FastAPI
     - response_class: The class to use for the response. which is TemplateResponse by default.
-    - content_type: The content type of the response.
+    - content_type: The content type to use for the response, it is passed as a keyword argument to the response_class.
 
   Methods:
-    - get_template_names(): It checks to if a template name is assigned and returns the template,
-      else it raise an ImproperlyConfigured exception.
+    - get_template_names(): It returns a list of template names to search for when rendering 
+      the template. The first template that is found will be used.
 
-    - render_to_response(): 
+      Default implementation will return a list containing the template_name attribute.(if specified)
+    
 
+    - render_to_response(context, **response_kwargs): This method returns an instance of the response_class attribute 
 
+ContextMixin: 
+  Attributes:
+    - extra_context: 
 
-
-
-
-
-
-
-
+  method:
+    - get_context_data(**kwargs): It returns a dictionary to use as a context for a template.
+      It is used by the render_to_response() method. If extra context is specified it will be merged with the context.
+      In a case where i want extra key-value pair in the returned context/dictionary that would be 
+      rendered by the template engine in my template you could modify this method.
 
 
 
 How to use generic views:
   - Using them directly in your URLconf
   - Creating Subclass from them and overiding their attributes or methods
+
+
+Other Use Cases includes:
+  - Rendering a price page in your web application keeping your price for each goods uptodate.
+
+
+
+Second Third Simple Base View is RedirectView
+
+RedirectView:
+  inheritance-list:
+    - View
+
+
+  attributes:
+    - permanent: Defaults to False. 
+    - url: if assigned provides the url to redirect to as a string, 
+      else defaults to None which raises a 410 HTTP status code.
+    - pattern_name: Defaults to None
+    - query_string: Defaults to False
