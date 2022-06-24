@@ -22,7 +22,7 @@ class Project(models.Model):
    language = models.ForeignKey(ProgrammingLanguage, on_delete=models.CASCADE, related_name="projects")
    contributors = models.ManyToManyField(User, related_name="project_contributors")
    updated_at = models.DateTimeField(auto_now=True)
-   created_at = models.DateTimeField(auto_now_add=True)
+   created_at = models.DateTimeField(auto_now_add=True, editable=False)
 
    def __str__(self):
       return self.title
