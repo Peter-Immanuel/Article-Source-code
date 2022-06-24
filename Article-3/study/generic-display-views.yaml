@@ -1,0 +1,126 @@
+
+
+Django Generic Display Views
+
+- DetailsView
+- ListView
+
+
+foundation for Generic views has been layed already.
+
+lets look at DetialsView
+
+Limit of Generic views:
+  That said, generic views will have a limit. 
+  If you find you’re struggling to implement your view as a subclass of a generic view, 
+  then you may find it more effective to write just the code you need, using your own 
+  class-based or functional views.
+
+DetailView:
+  The details view renders the details of an object. based on the parameter provided
+  in the templates.
+
+  - When this view is executing self.object will contain the object being operated on.
+
+  Class-Inheritance-List:
+    - SingleObjectTemplateResponseMixin
+    - BaseDetailView
+
+
+  Inheritance-list:
+    - SingleObjectTemplateResponseMixin (Location: django.views.generic.detail)
+    - TemplateResponseMixin (Location: django.views.generic.base)
+    - BaseDetailView (Location: django.views.generic.detail)
+    - SingleObjectMixin  (Location: django.views.generic.details )
+    - View (Location: django.views.generic.base )
+
+  Method FlowChart: 
+    - setup() Inheritance Class: View
+    - dispatch() Inheritance Class: View
+    - http_method_not_allowed() Inheritance Class: View
+    - get_template_name() Inheritance Class: TemplateResponseMixin
+    - get_slug_field() Inheritance Class: SingleObjectMixin
+    - get_queryset() Inheritance Class: SingleObjectMixin
+    - get_object()  Inheritance Class: SingleObjectMixin
+    - get_context_object_name() Inheritance Class: SingleObjectMixin
+    - get_context_data() Inheritance Class: ContextMixin
+    - get() Inheritance Class: BaseDetialView
+    - render_to_response() Inheritance Class: TemplateResponseMixin
+
+
+  Inheritance List in a Giggle
+    - SingleObjectTemplateResponseMixin:
+
+      Inheritance List:
+        - TemplateResponseMixin
+
+      Attributes:
+        - template_name_field
+        - template_name_suffix
+
+      method:
+        - get_template_names
+
+
+
+DetailView:
+
+  Required attributes:
+    - model
+    - queryset (optional)
+
+
+  The details view renders the details of an object. based on the parameter provided
+  in the templates.
+  When this view is executing self.object will contain the object being operated on.
+
+  .....How to works..... 
+  Since it's a detial View, that is we need a parameter to use in finding the object,
+  it could be a slug or pk or id
+
+  the setup() method is called, to initialize attributes shared by all the view method. in this case get()
+  
+  dispatch() method creates a handler which a defined method in this case get then this method returns by calling the 
+    handler method giving it request, *args and **kwarg
+  
+  the get() method is called (defined in the BaseDetailView):
+    - It creates the object by calling the get_object method defined in(SingleObjectMixin):
+        the get_object method requires:
+          - queryset or the method get_queryset()
+          - a primary key pk or a slug argument from the url lined to that view.
+
+          if queryset is defined it proceed to find the object using the pk or slug:
+
+          if queryset is not defind it try to get the queryset by calling the get_queryset method:
+            which returns the QuerySet Instance of the defined Model.  model._default_manager.all()
+
+          It gets the pk and slug, then searches for the object using the pk if pk is provided if it isn't 
+          it trys getting the object using the slug, if slug isn't found to. it raise an error 
+          
+          If no error it returns the object in self.object.
+
+    - Create the context by calling the get_context_data defined in (SingleObjectMixin) which overides 
+      get_context_data defined in ContextMixin:
+      updates the context dictionary with the key value pairs:  
+        - object == self.object
+        - context_object_name = provided context_object_name or sets it to _meta.model_name of the object
+
+      returns the context dictionary
+
+    returns by calling the render_to_response method.
+
+  render_to_response() method defined in (TemplateResponseMixin) This method returns a response using the response class 
+  which defaults to "TemplateResponse" with a template rended with the given context.
+    - this method request a template so it calls the get_template_name() method to get the name of the template to use.
+    which is gotten from defining the template name attribute of the custom DisplayView Class.
+
+
+  Then the detials about the object is displayed on the designated template.
+
+  
+
+
+
+      
+
+

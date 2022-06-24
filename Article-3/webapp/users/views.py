@@ -2,10 +2,12 @@ from typing import Dict, Any, Optional
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import (
+   TemplateView, RedirectView,
+   DetailView, ListView
+)
 
-# Create your views here.
-
+from .models.projects import ProgrammingLanguage, Project
 from .forms import UserForm
 
 class UserView(View):
@@ -34,3 +36,13 @@ class CustomTemplateView(TemplateView):
 
    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
       return super().get_context_data(**kwargs)
+
+
+# django generic display views
+class ProjectDetailView(DetailView):
+   model = Project
+
+
+class Project2DetailView(DetailView):
+   model = Project
+   template_name = "users/details.html"

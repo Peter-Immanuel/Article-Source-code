@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models.users import User
+from .models.projects import ProgrammingLanguage, Project
 
-# Register your models here.
+
+admin.site.register((ProgrammingLanguage,Project, User))

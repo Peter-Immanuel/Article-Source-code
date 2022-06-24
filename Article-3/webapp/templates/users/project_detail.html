@@ -1,0 +1,16 @@
+
+
+
+<h1>{{ object.title }}</h1>
+
+<h3>{{ object.owner }} </h3>
+
+<h4>{{ object.language }}</h4>
+
+
+{% for contributor in object.contributors.all %}
+<ul>
+   <li>{{ contributor }}</li>
+</ul>
+
+{% endfor %}

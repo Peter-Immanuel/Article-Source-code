@@ -1,4 +1,5 @@
 # created by virtualenv automatically
 /webapp-venv/
-/study/
+/study/playground/
 /webapp/.env/
+/webapp/users/models/blog.py
