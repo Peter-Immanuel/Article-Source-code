@@ -78,7 +78,7 @@ DetailView:
   Since it's a detial View, that is we need a parameter to use in finding the object,
   it could be a slug or pk or id
 
-  the setup() method is called, to initialize attributes shared by all the view method. in this case get()
+  the setup() method is called, to initialise attributes shared by all the view method. in this case get()
   
   dispatch() method creates a handler which a defined method in this case get then this method returns by calling the 
     handler method giving it request, *args and **kwarg
@@ -87,7 +87,7 @@ DetailView:
     - It creates the object by calling the get_object method defined in(SingleObjectMixin):
         the get_object method requires:
           - queryset or the method get_queryset()
-          - a primary key pk or a slug argument from the url lined to that view.
+          - a primary key pk or a slug argument from the url liked to that view.
 
           if queryset is defined it proceed to find the object using the pk or slug:
 
