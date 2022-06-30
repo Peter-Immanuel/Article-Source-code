@@ -1,0 +1,39 @@
+
+Topic: JWT Authentication 
+
+Concepts:
+  - Authorization
+  - Authentication
+  - OAuth
+  - OAuth versions
+  - JWT and other OAuth options
+  - JWT Authentication with FastAPI
+
+
+Authorization:
+  From wiki To authorize means to define an access policy. This access policy defines rules
+  used to decide access should be granted to request from an authenticated user. 
+  I guess in some of these military movies you hear things like "Whats your authorization level?"
+  They use that to based on your level, they refare the access policy to see if to what extent can 
+  your level access resources.
+
+
+Authentication:
+  Authentication is the process of verifying someone or something(I'm using something intensionaly) claim.
+  So in tech world is verifying that such a person exist in our database and the credentials provided matches 
+  those available, inturn the person is given an "Authorization level" to access the application.
+
+  This authentication system could be part of the server (Monolithic) or a dedicated service(microservice)
+
+
+Authentication Factors:
+  - Knowledge Factor
+  - Possession Factor
+  - Inheritance Factor
+  - Location Factor
+  - Time Factor
+
+
+Authentication Types:
+  - Single Factor Authentication: Here the Authentication factor used is Knowledge.
+  
