@@ -15,3 +15,9 @@
 /Article-3/ClassBase-dismistify
 /Article-3/webapp/.env
 .DS_Store
+
+
+# article 5 ignore files 
+
+__pycache__/
+.DS_Store/

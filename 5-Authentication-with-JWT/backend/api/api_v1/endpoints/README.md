@@ -1,0 +1,1 @@
+The endpoint folder includes the path operations for each entity
