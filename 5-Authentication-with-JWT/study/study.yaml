@@ -64,6 +64,15 @@ Authentication Types:
 
 
 
+OAuth:
+  OAuth is an open-standard authorization protocol or framework that provides applications the ability 
+  for “secure designated access.” OAuth doesn’t share password data but instead uses authorization 
+  tokens to prove an identity between consumers and service providers. OAuth is about authorization not authentication
+  In Simple Terms:
+    - Authorization is about asking for permission
+    - Authentication is about verifying one's claim.
+
+    
   
 
 
@@ -79,6 +88,6 @@ Resources:
   Title: Use these 6 user authentication types to secure networks
   Link: https://www.techtarget.com/searchsecurity/tip/Use-these-6-user-authentication-types-to-secure-networks
 
-  Title: Use these 6 user authentication types to secure networks
-  Link: https://www.techtarget.com/searchsecurity/tip/Use-these-6-user-authentication-types-to-secure-networks
+  Title: What is OAuth? Definition and How it Works
+  Link: https://www.varonis.com/blog/what-is-oauth
 
