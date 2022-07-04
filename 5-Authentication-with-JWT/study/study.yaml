@@ -19,21 +19,66 @@ Authorization:
 
 
 Authentication:
-  Authentication is the process of verifying someone or something(I'm using something intensionaly) claim.
-  So in tech world is verifying that such a person exist in our database and the credentials provided matches 
-  those available, inturn the person is given an "Authorization level" to access the application.
+  Authentication is the process of verifying someone or something's claim(I'm using something intensionaly).
+  So in the tech world it means verifying that such a person exist in our database and the credentials provided matches 
+  those available, inturn the person is given allowed to access the application and its resources based on some 
+  "Authorization level".
 
   This authentication system could be part of the server (Monolithic) or a dedicated service(microservice)
 
 
-Authentication Factors:
-  - Knowledge Factor
-  - Possession Factor
-  - Inheritance Factor
-  - Location Factor
-  - Time Factor
+Commonly Used Authentication Factors:
+  - Knowledge Factor: This  refers to something you know. typically username and password
+  - Possession Factor: Something your have, a smard token or smard device
+  - Inherence Factor: Something you are, an inherent biometric characteristics 
+  - Location Factor: This factor is less common and isn't used alone, it suppliments other authentication methods
+  - Time Factor: Similar to location, it isn't used seperately. It could be used to suppliment other identifying mechanism
+
 
 
 Authentication Types:
-  - Single Factor Authentication: Here the Authentication factor used is Knowledge.
+  - Password-based Authentication: 
+    This authentication generally includes only one authenticaton factor. Most time it's the knowldege. 
+    Username and password. requiring you to provide your unique username and password
+
+  - Multi-factor Authentication:
+    This authentication involves using more than one AuthFactor for authentication, This could be
+    knowledge factor as well as possession factor. 
+
+  - Certificate-based Authentication:
+    This authentication type uses digital certificates issued by certificate authority and Public key 
+    cryptography to verify user identity
+
+  - Biometric Authentication:
+    This authentication type uses the Inherence factor for authentication. which could be finger print
+    facial recognition, iris recognition.
+
+  - Token-Based Authentication:
+    This authentication involves the user exchanging their details (username and password) for a unique encrypted
+    string of random characters.
+
+  - Single Sign-on (SSO):
+    this enables a user to use a single set of credentials to access multiple applications or website 
+    The user creates an account with the Identity Provider (IdP). And whenever the user needs to use services
+    provided by other service pro
+
+
+
   
+
+
+
+Resources:
+
+  Title: 5 User Authentication method that can prevent the next breach
+  Link: https://www.idrnd.ai/5-authentication-methods-that-can-prevent-the-next-breach/
+
+  Title: Authentication Factor
+  Link: https://www.techtarget.com/searchsecurity/definition/authentication-factor
+
+  Title: Use these 6 user authentication types to secure networks
+  Link: https://www.techtarget.com/searchsecurity/tip/Use-these-6-user-authentication-types-to-secure-networks
+
+  Title: Use these 6 user authentication types to secure networks
+  Link: https://www.techtarget.com/searchsecurity/tip/Use-these-6-user-authentication-types-to-secure-networks
+

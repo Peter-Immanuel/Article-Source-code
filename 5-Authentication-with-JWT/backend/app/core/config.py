@@ -9,9 +9,9 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-   ALGORITHM = "HS256"
-   DATABASE_URL = os.environ.get("DATABASE_URL")
-   SECRET_KEY:str = secrets.token_urlsafe(32)
+   ALGORITHM: str = "HS256"
+   DATABASE_URL: str = os.environ.get("DATABASE_URL")
+   SECRET_KEY: str = secrets.token_urlsafe(32)
 
    API_V1_STRING: str = "/api/v1"
 
