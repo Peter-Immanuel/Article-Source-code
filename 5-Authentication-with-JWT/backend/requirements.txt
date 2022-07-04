@@ -1,0 +1,12 @@
+-i https://pypi.org/simple
+anyio==3.6.1
+fastapi==0.78.0
+greenlet==1.1.2
+idna==3.3
+pydantic==1.9.1
+sniffio==1.2.0
+sqlalchemy==1.4.39
+sqlalchemy2-stubs==0.0.2a24
+sqlmodel==0.0.6
+starlette==0.19.1
+typing-extensions==4.3.0
