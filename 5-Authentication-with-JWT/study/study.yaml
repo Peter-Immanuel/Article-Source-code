@@ -72,6 +72,13 @@ OAuth:
     - Authorization is about asking for permission
     - Authentication is about verifying one's claim.
 
+  Here's What the RFC says about OAuth; OAuth 2.0 is an authorization framework which enables a third-party 
+  application to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating 
+  an approval interaction between the resource owner and the HHTP service, or by allowing the third party 
+  application to obtain access on its own behalf.  
+
+  Prior to OAuth, credentials were shared between application making it extremely risky.
+
     
   
 
@@ -91,3 +98,5 @@ Resources:
   Title: What is OAuth? Definition and How it Works
   Link: https://www.varonis.com/blog/what-is-oauth
 
+  Title: OAuth 2.0 Authorization Framework(RFC 6749)
+  Link:  https://datatracker.ietf.org/doc/html/rfc6749#page-4
