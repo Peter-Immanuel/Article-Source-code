@@ -5,7 +5,6 @@ Concepts:
   - Authorization
   - Authentication
   - OAuth
-  - OAuth versions
   - JWT and other OAuth options
   - JWT Authentication with FastAPI
 
@@ -77,11 +76,139 @@ OAuth:
   an approval interaction between the resource owner and the HHTP service, or by allowing the third party 
   application to obtain access on its own behalf.  
 
-  Prior to OAuth, credentials were shared between application making it extremely risky.
+  Prior to OAuth, credentials were shared between application making it extremely risky. Due to a host of reasons 
+  such as third party application needs to store credentials somewhere for future use in plain which is dangerous
 
-    
+  2 this third party application would have full access right to your protected resources on the resource server. 
+  Imagine you're trying to sign up for canva using gmail. the'll just have assess to your mail box and do whatever
+  they want with it. and in a case where their server is down... it leaves your vonrulable.
+
+  Now lets define the parties(Roles) invloved in OAuth. Using Twitter as an Example
+  
+  - Resource Owner: 
+    An entity capable of granting access to a protected resource.
+    when the resource owner is a person, it's refered to as the end-user.
+
+  - Resource Server:
+    This is the server hosting the protected resources. It can accept
+    and respond to request made using an access token.
+
+  - Client Server:
+    An application making protected resources requests on behalf of the
+    resource owner and with its authorization. 
+
+  - Authorization Server:
+    This is the server issuing the access tokens to the clients after
+    successfully authenticating the resource owner and obtaining 
+    authorization.
+
+  Note the authorization server may be the same server as the resource server 
+  or a seperate entity. And a single authorization server may issue access token
+  accepted by multiple resource servers. (In microservice architecture that would 
+  be the authorization service.)
+
+  Authorization protocol flow (figure 1)
+
+
+  The preferred method for the client to obtain an authorization grant
+  from the resource owner is to use the authorization server as an intermediary.
+  Usually it is ownened by the resource server as a seperate entity or part of the
+  resource server. figure 2 explains this.
+
+
+  Authorization Grant:
+    is a credential represeting the resource owner's authorization
+    (Permission ot access it's protected resources). This grant will be used
+    by the client to obtain an access token.  this token it authenticated 
+    whenever the client tries to access resources from the resource server.
+
+    RFC 67 specification defines 4 credentials
+    - Authorization Code
+    - Implicit
+    - Resource owner password credentials
+    - client credentials 
+
+    Note: There is also and extensible mechanism for defining additional Grant types
+
+
+  Authotization Code:
+    For this grant type, the authorization server is used as an intermediate btw the 
+    client and the resource owner. 
+   
+    How does it work ? 
+    So instead of the client requesting authorization directly from the resource owner(You)
+    it redirects the resource owner to the authorization server via its user-agent. After 
+    authenticating on the authorization server the resource owner is redirected to the client
+    with the authorization code. the benefit it provides includes 
+    - it authenticates the client and transmit the access token directly to the client without
+      passing it through the resource owner's user-agent.
+
+  Implicit:
+    You're gonna like this one.. so the implicit grant is a simplified auth code flow optimized 
+    for clients implemented in a browser using a scripting language lik JS. Instead of issuing
+    the client an auth code, the client is issured an access toen directly, as a result of the 
+    resource owner directly. It is also important to know that the authorization server doesn't 
+    does not authenticate the client.
+
+  Resource owner Password Credentials:
+    The resource owner password credentials (i.e., username and password)
+   can be used directly as an authorization grant to obtain an access
+   token.  The credentials should only be used when there is a high
+   degree of trust between the resource owner and the client (e.g., the
+   client is part of the device operating system or a highly privileged
+   application), and when other authorization grant types are not
+   available (such as an authorization code).
+
+   Even though this grant type requires direct client access to the
+   resource owner credentials, the resource owner credentials are used
+   for a single request and are exchanged for an access token.  This
+   grant type can eliminate the need for the client to store the
+   resource owner credentials for future use, by exchanging the
+   credentials with a long-lived access token or refresh token
+
+
+  Client Credentials:
+    This type of authtorization grant is typically used when the client is 
+    acting on its own behalf. i.e the client is also the resource owner.
+
   
 
+
+Since all authorization Grants aims at providing the client with an access token
+to be used for authentication when accessing the protected resources lets define
+access tokens.
+
+
+Tokens:
+  - Access
+  - Refresh 
+
+Access: 
+  There are credentials used to access protected resources. its a string representing
+  an authorization issued to the client, its usually opaque to the client since 
+  there do not authenticate.
+
+
+Refresh Token:
+  Refresh token is a string representing the authorization granted to the client by 
+  the resource owner. They are used to obtain access tokens, when the current access 
+  token has expired. Note; Issuing a refresh token is optional at the discretion of 
+  the authorization server. they are only used with authorization servers and are never
+  sent to the resource server.
+
+
+
+
+JSON Web Tokens 
+
+
+  
+  
+  
+  
+  
+  
+  Example of application that could use OAuth is buffer for tweeter.
 
 
 Resources:
@@ -100,3 +227,7 @@ Resources:
 
   Title: OAuth 2.0 Authorization Framework(RFC 6749)
   Link:  https://datatracker.ietf.org/doc/html/rfc6749#page-4
+
+  Title: Introduction to OAuth 2.0 and OpenID Connect . Philippe De Ryck
+  Link: https://www.youtube.com/watch?v=GyCL8AJUhww&t=851s
+
